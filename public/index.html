@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Gestión de Tareas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📋 Sistema de Gestión de Tareas</h1>
+            <p>API REST con Node.js + Express</p>
+        </header>
+
+        <main>
+            <!-- Formulario para crear/editar tareas -->
+            <section class="form-section">
+                <h2 id="form-title">Nueva Tarea</h2>
+                <form id="tareaForm">
+                    <input type="hidden" id="tareaId">
+                    
+                    <div class="form-group">
+                        <label for="titulo">Título:</label>
+                        <input type="text" id="titulo" required placeholder="Ingrese el título">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="descripcion">Descripción:</label>
+                        <textarea id="descripcion" required placeholder="Ingrese la descripción"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="estado">Estado:</label>
+                        <select id="estado">
+                            <option value="pendiente">Pendiente</option>
+                            <option value="en progreso">En Progreso</option>
+                            <option value="completada">Completada</option>
+                        </select>
+                    </div>
+
+                    <div class="form-buttons">
+                        <button type="submit" class="btn btn-primary" id="submitBtn">Crear Tarea</button>
+                        <button type="button" class="btn btn-secondary" id="cancelBtn" style="display: none;">Cancelar</button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- Lista de tareas -->
+            <section class="tareas-section">
+                <div class="section-header">
+                    <h2>Lista de Tareas</h2>
+                    <span class="badge" id="totalTareas">0</span>
+                </div>
+                
+                <div id="tareasContainer" class="tareas-container">
+                    <p class="loading">Cargando tareas...</p>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Actividad 4 - API REST CRUD</p>
+        </footer>
+    </div>
+
+    <!-- Notificación Toast -->
+    <div id="toast" class="toast"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>
